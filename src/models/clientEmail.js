@@ -25,6 +25,14 @@ const ClientEmail = sequelize.define(
       type: DataTypes.DATE,
       allowNull:true,
       },
+      cedula: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+      },
+      telefono: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+      },
   },
     {
       timestamps:true,

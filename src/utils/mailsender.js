@@ -7,6 +7,11 @@ export const sendEmail = async (email,token) => {
       to: email, // list of receivers
       subject: "Ingresa con tu correo 📬🔓", // Subject line
       text: "Hello world?", // plain text body
+    //   attachments:[{
+    //       filename:'efectivoyalogo.svg',
+    //       path:__dirname + '/src/templates/efectivoyalogo.svg',
+    //       cid:'logo'
+    //   }],
       html: `<!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://wwww.w3.org/1999/xhtml">
@@ -75,7 +80,7 @@ export const sendEmail = async (email,token) => {
                         <table width="100%" style="border-spacing: 0">
                             <tr>
                                 <td style="background-color: #388cda;padding: 10px;text-align: left;">
-                                    <a href=""><img src="https://efectivoya.do/assets/ico.svg" alt="Logo" width="120" /></a>
+                                    <a href=""><img src="cid:logo" alt="Logo" width="120" /></a>
                                 </td>
                             </tr>
                             <tr>

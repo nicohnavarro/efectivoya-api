@@ -13,11 +13,14 @@ class UserRepository {
   }
 
   async findByEmail(email) {
-    return await User.findOne({ where: { email } });
+    return await User.findOne({ where: { email },order: [ [ 'createdAt', 'DESC' ]] });
+  }
+
+  async findByCedula(cedula) {
+    return await User.findOne({ where: { cedula },order: [ [ 'createdAt', 'DESC' ]]});
   }
 
   async save(user) {
-    // user.password = await hash(user.password, 10);
     return await User.create(user);
   }
 
