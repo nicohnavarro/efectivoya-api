@@ -117,7 +117,7 @@ export const sendEmail = async (email,token) => {
                                         <tr>
                                             <td
                                                 style="background-color: #F8F8F8;padding:40px;text-align: center;align-items: center;">
-                                                <a href="https://efectivoyado.web.app/#/verify/${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;font-family: Poppins;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span style="font-weight: bold;">Continuar</span></a>
+                                                <a href="https://uat-landing-masterpage.azurewebsites.net/#/verify/${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;font-family: Poppins;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span style="font-weight: bold;">Continuar</span></a>
                                             </td>
                                         </tr>
                                     </table>
