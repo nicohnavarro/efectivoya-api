@@ -18,7 +18,7 @@ const ClientEmail = sequelize.define(
       defaultValue: false,
     },
     userAgent: {
-      type: DataTypes.STRING(120),
+      type: DataTypes.STRING(240),
       allowNull: true,
     },
     expiredTime: {
