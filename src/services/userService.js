@@ -13,8 +13,16 @@ const findByEmail = async (email) => {
   return await repository.findByEmail(email);
 };
 
+const findByEmailAndCedulaNotNull = async ( email) => {
+  return await repository.findByEmailAndCedulaNotNull(email);
+};
+
 const findByCedula = async (cedula) => {
   return await repository.findByCedula(cedula);
+};
+
+const findByCedulaAndEmail = async (cedula,email) => {
+  return await repository.findByCedulaAndEmail(cedula,email);
 };
 
 const save = async (user) => {
@@ -33,7 +41,9 @@ export {
   findAll,
   findById,
   findByEmail,
+  findByEmailAndCedulaNotNull,
   findByCedula,
+  findByCedulaAndEmail,
   save,
   update,
   remove,
