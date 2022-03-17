@@ -3,7 +3,7 @@ services:
   efectivoya-api:
     build: .
     ports:
-      - "3000:3000"
+      - "3000:300"
     volumes:
       - ./:/app
       - /app/node_modules
