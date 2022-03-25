@@ -9,18 +9,18 @@ export const sendEmail = async (email, token) => {
     console.log(__dirname);
     try {
         let sendResult = await transporter.sendMail({
-            from: '""Efectivo Ya 💲"" <foo@example.com>', // sender address
-            to: email, // list of receivers
-            subject: "¡Confirma tu e-mail y pide tu préstamo!", // Subject line
-            text: "Con EfectiyoYa puedes recibir el dinero en tu cuenta en el mismo día.", // plain text body
-            attachments: [
-                {
-                    filename: "efectivoyalogo.png",
-                    path: __dirname + "/efectivoyalogo.png",
-                    cid: "logo",
-                },
-            ],
-            html: `<!DOCTYPE html
+          from: '""Efectivo Ya 💲"" <foo@example.com>', // sender address
+          to: email, // list of receivers
+          subject: "¡Confirma tu e-mail y pide tu préstamo!", // Subject line
+          text: "Con EfectiyoYa puedes recibir el dinero en tu cuenta en el mismo día.", // plain text body
+          attachments: [
+            {
+              filename: "efectivoyalogo.png",
+              path: __dirname + "/efectivoyalogo.png",
+              cid: "logo",
+            },
+          ],
+          html: `<!DOCTYPE html
     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://wwww.w3.org/1999/xhtml">
 
@@ -125,7 +125,7 @@ export const sendEmail = async (email, token) => {
                                         <tr>
                                             <td
                                                 style="background-color: #F8F8F8;padding:40px;text-align: center;align-items: center;">
-                                                <a href="https://efectivoyado.web.app/#/verify/${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
+                                                <a href="https://uat-landing-masterpage.azurewebsites.net/#/verify/${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
                                             </td>
                                         </tr>
                                     </table>
