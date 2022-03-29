@@ -5,7 +5,7 @@ import express, { json } from "express";
 import { serve, setup } from "swagger-ui-express";
 
 import { port, api, swagger } from "../../config/index.js";
-import swaggerDocument from "../swagger/swagger.json";
+import swaggerDocument from "../swagger/swagger";
 
 import authRoutes from "../../routes/auth.js";
 import usersRoutes from "../../routes/users.js";
@@ -17,7 +17,7 @@ export class ExpressServer {
     this.basePath = api.prefix;
 
     this._middlewares();
-    this._swaggerConfig();
+    // this._swaggerConfig();
     this._routes();
 
     this._notFound();
