@@ -7,15 +7,13 @@ const startLoader = async () => {
   try {
     await sequelize.authenticate();
     sequelize.sync({ alter: true });
-    logger.info("Database Loaded and Connected");
+    logger.info("Database Loaded and Connected 🔗");
+
     const server = new ExpressServer();
-    logger.info("Express Loaded");
     server.start();
-    logger.info("#############################################");
-    logger.info(`Server listening on port: ${port}`);
-    logger.info("#############################################");
+    logger.info(`Server listening on port: ${port} 🔥`);
   } catch (err) {
-    console.error("Unable to connect to the database!", err);
+    console.error("Unable to connect to the database! ❌", err);
   }
 };
 

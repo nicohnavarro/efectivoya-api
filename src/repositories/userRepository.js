@@ -1,6 +1,6 @@
 import { hash } from "bcrypt";
 import User from "../models/user.js";
-import { Op } from 'sequelize';
+import { Op } from "sequelize";
 class UserRepository {
   constructor() {}
 
@@ -20,7 +20,7 @@ class UserRepository {
   }
   async findByEmailAndCedulaNotNull(email) {
     return await User.findOne({
-      where: { email, cedula: {[Op.not]: null}},
+      where: { email, cedula: { [Op.not]: null } },
       order: [["createdAt", "DESC"]],
     });
   }
@@ -38,6 +38,7 @@ class UserRepository {
       order: [["createdAt", "DESC"]],
     });
   }
+
   async save(user) {
     return await User.create(user);
   }

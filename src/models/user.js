@@ -8,9 +8,9 @@ const User = sequelize.define(
       type: DataTypes.STRING(50),
       allowNull: false,
     },
-    token: {
+    password: {
       type: DataTypes.STRING(240),
-      allowNull: false,
+      allowNull: true,
     },
     enable: {
       type: DataTypes.BOOLEAN,
@@ -21,26 +21,30 @@ const User = sequelize.define(
       type: DataTypes.STRING(120),
       allowNull: true,
     },
-    expiredTime: {
-      type: DataTypes.DATE,
-      allowNull:true,
-      },
-      cedula: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-      },
-      telefono: {
-        type: DataTypes.STRING(50),
-        allowNull: true,
-      },
+    cedula: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    telefono: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    resetCode: {
+      type: DataTypes.STRING(240),
+      allowNull: true,
+    },
+    ip: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
   },
-    {
-      timestamps:true,
+  {
+    timestamps: true,
     indexes: [
       {
         unique: true,
-        fields: ["token"],
-          },
+        fields: ["email"],
+      },
     ],
   }
 );

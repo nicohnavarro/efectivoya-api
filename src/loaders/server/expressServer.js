@@ -1,9 +1,14 @@
-import express, { json } from "express";
+import cors from "cors";
 import { join } from "path";
 import morgan from "morgan";
-import { port, api } from "../../config/index.js";
-import emailRoutes from "../../routes/emails.js";
-import cors from "cors";
+import express, { json } from "express";
+import { serve, setup } from "swagger-ui-express";
+
+import { port, api, swagger } from "../../config/index.js";
+import swaggerDocument from "../swagger/swagger.json";
+
+import authRoutes from "../../routes/auth.js";
+import usersRoutes from "../../routes/users.js";
 
 export class ExpressServer {
   constructor() {
@@ -12,7 +17,7 @@ export class ExpressServer {
     this.basePath = api.prefix;
 
     this._middlewares();
-
+    this._swaggerConfig();
     this._routes();
 
     this._notFound();
@@ -40,7 +45,9 @@ export class ExpressServer {
     this.app.get("/report", (req, res) => {
       res.sendFile(join(__dirname + "../../../../postman/report.html"));
     });
-    this.app.use(`${this.basePath}/email`, emailRoutes);
+
+    this.app.use(`${this.basePath}/auth`, authRoutes);
+    this.app.use(`${this.basePath}/user`, usersRoutes);
   }
 
   _notFound() {
@@ -50,6 +57,10 @@ export class ExpressServer {
       err.code = 404;
       next(err);
     });
+  }
+
+  _swaggerConfig() {
+    this.app.use(swagger.path, serve, setup(swaggerDocument));
   }
 
   _errorHandler() {

@@ -2,6 +2,9 @@ import { compare } from "bcrypt";
 import JWT from "jsonwebtoken";
 import { auth } from "../config/index.js";
 import AppError from "../errors/appError.js";
+import { findByEmail } from "./userService.js";
+import UserRepository from "../repositories/userRepository.js";
+const repository = new UserRepository();
 
 const login = async (email, password) => {
   try {
@@ -11,45 +14,43 @@ const login = async (email, password) => {
       throw new AppError("User not found!", 401);
     }
 
-    if (!user.enable) {
-      throw new AppError("User disabled!", 401);
-    }
-
     const validPassword = await compare(password, user.password);
 
     if (!validPassword) {
       throw new AppError("Authentication failed, Password invalid", 401);
     }
 
-    const token = _encrypt(user.id);
+    const token = _encrypt({ id: user.id, email: user.email });
 
     return {
       token,
-      user: user.name,
-      role: user.role,
+      user: user.email,
+      id: user.id,
     };
   } catch (err) {
     throw err;
   }
 };
 
-const register = async (name, username, email, password) => {
+const register = async (email, expiredTime) => {
   try {
     const user = await findByEmail(email);
 
     if (user) {
       throw new AppError("Mail already use!", 401);
     }
+
     const newUser = {
-      name,
-      username,
       email,
-      password,
+      expiredTime,
     };
-    const returnUser = {role:"Admin"}
+
+    const returnUser = await repository.save(newUser);
+    const tokenData = { id: returnUser.id, email: returnUser.email };
+    const token = _encrypt(tokenData);
     return {
       user: returnUser.toJSON(),
-      role: returnUser.toJSON().role,
+      token: token,
     };
   } catch (err) {
     throw err;
@@ -88,8 +89,8 @@ const validRole = (user, ...roles) => {
   return true;
 };
 
-const _encrypt = (id) => {
-  return JWT.sign({ id }, auth.secret, { expiresIn: auth.ttl });
+const _encrypt = (user) => {
+  return JWT.sign(user, auth.secret, { expiresIn: "20d" });
 };
 
 export { login, register, validToken, validRole };

@@ -1,6 +1,6 @@
 import { check, validationResult } from "express-validator";
 import AppError from "../../errors/appError.js";
-import { validToken, validRole } from "../../services/authService.js";
+import { validToken } from "../../services/authService.js";
 
 const _emailRequired = check("email", "Email required").not().isEmpty();
 const _emailValid = check("email", "Email invalid").isEmail();
@@ -42,20 +42,8 @@ const validJWT = async (req, res, next) => {
   }
 };
 
-const hasRole = (...roles) => {
-  return (req, res, next) => {
-    try {
-      validRole(req.user, ...roles);
-      next();
-    } catch (err) {
-      next(err);
-    }
-  };
-};
-
 export {
   postLoginRequestValidations,
   postRegisterRequestValidations,
   validJWT,
-  hasRole,
 };
