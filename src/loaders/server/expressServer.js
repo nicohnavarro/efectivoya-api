@@ -1,8 +1,8 @@
 import cors from "cors";
 import { join } from "path";
 import morgan from "morgan";
-import express, { json } from "express";
 
+import express, { json } from "express";
 import { port, api, swagger } from "../../config/index.js";
 
 import authRoutes from "../../routes/auth.js";
