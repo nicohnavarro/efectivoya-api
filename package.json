@@ -5,8 +5,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon -L --experimental-json-modules src",
-    "start": "node --experimental-json-modules src"
+    "dev": "npx nodemon src",
+    "start": "node src"
   },
   "repository": {
     "type": "git",

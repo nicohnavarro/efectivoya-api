@@ -59,9 +59,9 @@ export class ExpressServer {
     });
   }
 
-  _swaggerConfig() {
-    this.app.use(swagger.path, serve, setup(swaggerDocument));
-  }
+  // _swaggerConfig() {
+  //   this.app.use(swagger.path, serve, setup(swaggerDocument));
+  // }
 
   _errorHandler() {
     this.app.use((err, req, res, next) => {
