@@ -2,10 +2,8 @@ import cors from "cors";
 import { join } from "path";
 import morgan from "morgan";
 import express, { json } from "express";
-import { serve, setup } from "swagger-ui-express";
 
 import { port, api, swagger } from "../../config/index.js";
-import swaggerDocument from "../swagger/swagger";
 
 import authRoutes from "../../routes/auth.js";
 import usersRoutes from "../../routes/users.js";
