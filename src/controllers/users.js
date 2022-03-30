@@ -14,8 +14,8 @@ import { sendResetPassword } from "../utils/mailer.js";
 
 const checkCedula = async (req = request, res = response, next) => {
   try {
-    const { id, cedula, email } = req.body;
-    const user = await findByEmail(email);
+    const { id, cedula } = req.body;
+    const user = await findByCedula(cedula);
     if (!user) {
       res.json(new Success({ isNew: true }));
       return;
@@ -56,7 +56,7 @@ const savePassword = async (req = request, res = response, next) => {
 const saveCedulayTelefono = async (req = request, res = response, next) => {
   try {
     const { id, cedula, telefono } = req.body;
-    const user = await findByCedula(cedula);
+    const user = await findById(id);
     if (user) {
       const updateUser = await update(user.id, { ...user, cedula, telefono });
       res.json(new Success({ updateUser }));
