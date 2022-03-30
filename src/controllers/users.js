@@ -20,8 +20,11 @@ const checkCedula = async (req = request, res = response, next) => {
       throw new AppError("Cedula are not equals", 401);
     }
     if (!user) {
-      res.json(new Success({ isNew: true }));
-      return;
+      const userEmail = await findByEmail(email);
+      if (userEmail && !userEmail.cedula) {
+        res.json(new Success({ isNew: true }));
+        return;
+      }
     }
     res.json(new Success({ user }));
   } catch (err) {
