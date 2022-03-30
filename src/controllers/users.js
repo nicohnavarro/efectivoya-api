@@ -15,7 +15,7 @@ import { sendResetPassword } from "../utils/mailer.js";
 const checkCedula = async (req = request, res = response, next) => {
   try {
     const { id, cedula } = req.body;
-    const user = await findByCedula(cedula);
+    const user = await findById(id);
     if (!user) {
       res.json(new Success({ isNew: true }));
       return;
