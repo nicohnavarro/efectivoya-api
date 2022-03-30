@@ -14,14 +14,14 @@ import { sendResetPassword } from "../utils/mailer.js";
 
 const checkCedula = async (req = request, res = response, next) => {
   try {
-    const { id, cedula } = req.body;
+    const { id, cedula, email } = req.body;
     const user = await findByCedula(cedula);
+    if (user && (user?.email !== email || user?.cedula !== cedula)) {
+      throw new AppError("Cedula are not equals", 401);
+    }
     if (!user) {
       res.json(new Success({ isNew: true }));
       return;
-    }
-    if (user?.cedula && user?.cedula !== cedula) {
-      throw new AppError("Cedula are not equals", 401);
     }
     res.json(new Success({ user }));
   } catch (err) {
