@@ -56,7 +56,7 @@ const savePassword = async (req = request, res = response, next) => {
 const saveCedulayTelefono = async (req = request, res = response, next) => {
   try {
     const { id, cedula, telefono } = req.body;
-    const user = await findById(id);
+    const user = await findByCedula(cedula);
     if (user) {
       const updateUser = await update(user.id, { ...user, cedula, telefono });
       res.json(new Success({ updateUser }));
