@@ -20,7 +20,14 @@ const login = async (email, password) => {
       throw new AppError("Authentication failed, Password invalid", 401);
     }
 
-    const token = _encrypt({ id: user.id, email: user.email });
+    const token = _encrypt({
+      id: user.id,
+      email: user.email,
+      cedula: user.cedula,
+      celular: user.celular,
+      passOtp: user.passOtp,
+      segmento: user.segmento,
+    });
 
     return {
       token,

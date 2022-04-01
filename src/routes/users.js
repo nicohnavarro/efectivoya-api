@@ -3,15 +3,19 @@ import {
   checkCedula,
   forgotPassword,
   resetPassword,
-  saveCedulayTelefono,
+  saveCedulayCelular,
+  savePassOpt,
   savePassword,
+  saveSegmento,
 } from "../controllers/users.js";
 
 const router = Router();
 
 router.post("/checkCedula", checkCedula);
-router.post("/saveCedula", saveCedulayTelefono);
+router.post("/saveCedula", saveCedulayCelular);
 router.post("/savePassword", savePassword);
+router.post("/savePassOtp", savePassOpt);
+router.post("/saveSegmento", saveSegmento);
 router.post("/forgotPassword", forgotPassword);
 router.post("/resetPassword", resetPassword);
 

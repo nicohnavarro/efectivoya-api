@@ -12,7 +12,7 @@ const User = sequelize.define(
       type: DataTypes.STRING(240),
       allowNull: true,
     },
-    enable: {
+    passOtp: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false,
@@ -25,7 +25,11 @@ const User = sequelize.define(
       type: DataTypes.STRING(50),
       allowNull: true,
     },
-    telefono: {
+    celular: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
+    segmento: {
       type: DataTypes.STRING(50),
       allowNull: true,
     },

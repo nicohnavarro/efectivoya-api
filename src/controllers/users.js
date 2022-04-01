@@ -55,15 +55,45 @@ const savePassword = async (req = request, res = response, next) => {
   }
 };
 
-const saveCedulayTelefono = async (req = request, res = response, next) => {
+const saveCedulayCelular = async (req = request, res = response, next) => {
   try {
-    const { id, cedula, telefono } = req.body;
+    const { id, cedula, celular } = req.body;
     const user = await findById(id);
     if (user) {
-      const updateUser = await update(user.id, { ...user, cedula, telefono });
+      const updateUser = await update(user.id, { ...user, cedula, celular });
       res.json(new Success({ updateUser }));
     } else {
       throw new AppError("Not found", 404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const savePassOpt = async (req = request, res = response, next) => {
+  try {
+    const { id } = req.body;
+    const user = await findById(id);
+    if (user) {
+      const updateUser = await update(user.id, { ...user, passOpt: true });
+      res.json(new Success({ updateUser }));
+    } else {
+      throw new AppError("User not found", 202);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const saveSegmento = async (req = request, res = response, next) => {
+  try {
+    const { id, segmento } = req.body;
+    const user = await findById(id);
+    if (user) {
+      const updateUser = await update(user.id, { ...user, segmento });
+      res.json(new Success({ updateUser }));
+    } else {
+      throw new AppError("User not found", 202);
     }
   } catch (err) {
     next(err);
@@ -131,7 +161,9 @@ const resetPassword = async (req = request, res = response, next) => {
 export {
   checkCedula,
   savePassword,
-  saveCedulayTelefono,
+  saveCedulayCelular,
+  savePassOpt,
+  saveSegmento,
   resetPassword,
   forgotPassword,
 };
