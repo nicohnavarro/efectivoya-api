@@ -9,6 +9,7 @@ import { findByEmail } from "../services/userService.js";
 import {
   login as _login,
   register as _register,
+  loginWithApp as _loginWithApp,
 } from "../services/authService.js";
 import { sendConfirmationEmail } from "../utils/mailer.js";
 
@@ -16,6 +17,15 @@ const login = async (req = request, res = response, next) => {
   const { email, password } = req.body;
   try {
     res.json(new Success(await _login(email, password)));
+  } catch (error) {
+    next(error);
+  }
+};
+
+const loginWithApp = async (req = request, res = response, next) => {
+  const { email } = req.body;
+  try {
+    res.json(new Success(await _loginWithApp(email)));
   } catch (error) {
     next(error);
   }
@@ -54,4 +64,4 @@ const _encrypt = (email) => {
   return JWT.sign({ email }, auth.secret, { expiresIn: auth.ttl });
 };
 
-export { login, register, validToken };
+export { login, loginWithApp, register, validToken };

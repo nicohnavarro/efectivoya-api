@@ -39,6 +39,33 @@ const login = async (email, password) => {
   }
 };
 
+const loginWithApp = async (email) => {
+  try {
+    const user = await findByEmail(email);
+
+    if (!user) {
+      throw new AppError("User not found!", 401);
+    }
+
+    const token = _encrypt({
+      id: user.id,
+      email: user.email,
+      cedula: user.cedula,
+      celular: user.celular,
+      passOtp: user.passOtp,
+      segmento: user.segmento,
+    });
+
+    return {
+      token,
+      user: user.email,
+      id: user.id,
+    };
+  } catch (err) {
+    throw err;
+  }
+};
+
 const register = async (email, expiredTime) => {
   try {
     const user = await findByEmail(email);
@@ -100,4 +127,4 @@ const _encrypt = (user) => {
   return JWT.sign(user, auth.secret, { expiresIn: "20d" });
 };
 
-export { login, register, validToken, validRole };
+export { login, register, validToken, validRole, loginWithApp };
