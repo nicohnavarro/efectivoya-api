@@ -21,7 +21,7 @@ const login = async (email, password) => {
     }
 
     const token = _encrypt({
-      id: user._id,
+      id: user.id,
       email: user.email,
       cedula: user.cedula,
       celular: user.celular,
@@ -32,7 +32,7 @@ const login = async (email, password) => {
     return {
       token,
       user: user.email,
-      id: user._id,
+      id: user.id,
     };
   } catch (err) {
     throw err;
