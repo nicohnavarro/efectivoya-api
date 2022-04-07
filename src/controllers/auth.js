@@ -53,8 +53,8 @@ const validToken = async (req = request, res = response, next) => {
     if (!token) {
       throw new AppError("Authentication failed, token required", 401);
     }
-    const { email } = JWT.verify(token, auth.secret);
-    res.json(new Success({ email }));
+    const { email, id } = JWT.verify(token, auth.secret);
+    res.json(new Success({ email, id }));
   } catch (err) {
     next(err);
   }
