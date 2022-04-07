@@ -50,18 +50,20 @@ const loginWithApp = async (email) => {
     }
 
     const token = _encrypt({
-      id: user._id,
+      id: user.id,
       email: user.email,
       cedula: user.cedula,
       celular: user.celular,
       passOtp: user.passOtp,
+      passScore: user.passScore,
+      status: user.status,
       segmento: user.segmento,
     });
 
     return {
       token,
       user: user.email,
-      id: user._id,
+      id: user.id,
     };
   } catch (err) {
     throw err;
