@@ -70,12 +70,12 @@ const saveCedulayCelular = async (req = request, res = response, next) => {
   }
 };
 
-const savePassOpt = async (req = request, res = response, next) => {
+const savePassOtp = async (req = request, res = response, next) => {
   try {
     const { id } = req.body;
     const user = await findById(id);
     if (user) {
-      const updateUser = await update(user.id, { ...user, passOpt: 1 });
+      const updateUser = await update(user.id, { ...user, passOtp: 1 });
       res.json(new Success({ updateUser }));
     } else {
       throw new AppError("User not found", 202);
@@ -192,7 +192,7 @@ export {
   checkCedula,
   savePassword,
   saveCedulayCelular,
-  savePassOpt,
+  savePassOtp,
   savePassScore,
   saveStatus,
   saveSegmento,

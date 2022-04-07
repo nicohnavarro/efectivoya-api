@@ -4,7 +4,7 @@ import {
   forgotPassword,
   resetPassword,
   saveCedulayCelular,
-  savePassOpt,
+  savePassOtp,
   savePassScore,
   savePassword,
   saveSegmento,
@@ -15,7 +15,7 @@ const router = Router();
 router.post("/checkCedula", checkCedula);
 router.post("/saveCedula", saveCedulayCelular);
 router.post("/savePassword", savePassword);
-router.post("/savePassOtp", savePassOpt);
+router.post("/savePassOtp", savePassOtp);
 router.post("/savePassScore", savePassScore);
 router.post("/saveSegmento", saveSegmento);
 router.post("/saveStatus", saveSegmento);
