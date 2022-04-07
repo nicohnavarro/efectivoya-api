@@ -85,6 +85,21 @@ const savePassOpt = async (req = request, res = response, next) => {
   }
 };
 
+const savePassScore = async (req = request, res = response, next) => {
+  try {
+    const { id } = req.body;
+    const user = await findById(id);
+    if (user) {
+      const updateUser = await update(user.id, { ...user, passScore: true });
+      res.json(new Success({ updateUser }));
+    } else {
+      throw new AppError("User not found", 202);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const saveSegmento = async (req = request, res = response, next) => {
   try {
     const { id, segmento } = req.body;
@@ -163,6 +178,7 @@ export {
   savePassword,
   saveCedulayCelular,
   savePassOpt,
+  savePassScore,
   saveSegmento,
   resetPassword,
   forgotPassword,

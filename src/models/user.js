@@ -17,6 +17,11 @@ const User = sequelize.define(
       allowNull: false,
       defaultValue: false,
     },
+    passScore: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
+    },
     userAgent: {
       type: DataTypes.STRING(120),
       allowNull: true,

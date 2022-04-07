@@ -5,6 +5,7 @@ import {
   resetPassword,
   saveCedulayCelular,
   savePassOpt,
+  savePassScore,
   savePassword,
   saveSegmento,
 } from "../controllers/users.js";
@@ -15,6 +16,7 @@ router.post("/checkCedula", checkCedula);
 router.post("/saveCedula", saveCedulayCelular);
 router.post("/savePassword", savePassword);
 router.post("/savePassOtp", savePassOpt);
+router.post("/savePassScore", savePassScore);
 router.post("/saveSegmento", saveSegmento);
 router.post("/forgotPassword", forgotPassword);
 router.post("/resetPassword", resetPassword);
