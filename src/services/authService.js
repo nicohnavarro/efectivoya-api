@@ -44,7 +44,7 @@ const loginWithApp = async (email) => {
     const user = await findByEmail(email);
 
     if (!user) {
-      throw new AppError("User not found!", 401);
+      throw new AppError("User not found!", 203);
     }
 
     const token = _encrypt({
