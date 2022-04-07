@@ -26,6 +26,8 @@ const login = async (email, password) => {
       cedula: user.cedula,
       celular: user.celular,
       passOtp: user.passOtp,
+      passScore: user.passScore,
+      status: user.status,
       segmento: user.segmento,
     });
 
