@@ -38,6 +38,10 @@ const User = sequelize.define(
       type: DataTypes.STRING(50),
       allowNull: true,
     },
+    status: {
+      type: DataTypes.STRING(50),
+      allowNull: true,
+    },
     resetCode: {
       type: DataTypes.STRING(240),
       allowNull: true,

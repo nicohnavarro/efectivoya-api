@@ -115,6 +115,21 @@ const saveSegmento = async (req = request, res = response, next) => {
   }
 };
 
+const saveStatus = async (req = request, res = response, next) => {
+  try {
+    const { id, status } = req.body;
+    const user = await findById(id);
+    if (user) {
+      const updateUser = await update(user.id, { ...user, status });
+      res.json(new Success({ updateUser }));
+    } else {
+      throw new AppError("User not found", 202);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const forgotPassword = async (req = request, res = response, next) => {
   try {
     const { email } = req.body;
@@ -179,6 +194,7 @@ export {
   saveCedulayCelular,
   savePassOpt,
   savePassScore,
+  saveStatus,
   saveSegmento,
   resetPassword,
   forgotPassword,
