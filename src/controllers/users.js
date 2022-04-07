@@ -75,7 +75,7 @@ const savePassOpt = async (req = request, res = response, next) => {
     const { id } = req.body;
     const user = await findById(id);
     if (user) {
-      const updateUser = await update(user.id, { ...user, passOpt: true });
+      const updateUser = await update(user.id, { ...user, passOpt: 1 });
       res.json(new Success({ updateUser }));
     } else {
       throw new AppError("User not found", 202);
@@ -90,7 +90,7 @@ const savePassScore = async (req = request, res = response, next) => {
     const { id } = req.body;
     const user = await findById(id);
     if (user) {
-      const updateUser = await update(user.id, { ...user, passScore: true });
+      const updateUser = await update(user.id, { ...user, passScore: 1 });
       res.json(new Success({ updateUser }));
     } else {
       throw new AppError("User not found", 202);
