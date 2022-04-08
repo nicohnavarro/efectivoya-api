@@ -15,15 +15,19 @@ import { sendResetPassword } from "../utils/mailer.js";
 const checkCedula = async (req = request, res = response, next) => {
   try {
     const { id, cedula, email } = req.body;
-    const user = await findByEmail(email);
-    if (!user) {
-      throw new AppError("No user", 401);
+    let user = await findByCedula(cedula);
+    if (user) {
+      res.json(new Success({ alreadyExist: true }));
+      return;
     } else {
-      if (user.cedula == null) {
+      user = await findByEmail(email);
+      if (user && user.cedula == null) {
         res.json(new Success({ isNew: true }));
         return;
+      } else if (user && user.cedula) {
+        res.json(new Success({ emailHaveCedula: true }));
       } else {
-        res.json(new Success({ user }));
+        throw new AppError("No user", 401);
       }
     }
   } catch (err) {
