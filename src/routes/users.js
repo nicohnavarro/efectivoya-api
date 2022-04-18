@@ -10,16 +10,18 @@ import {
   saveSegmento,
   saveStatus,
 } from "../controllers/users.js";
+import { validJWT } from "../middlewares/auth/index.js";
 
 const router = Router();
 
-router.post("/checkCedula", checkCedula);
-router.post("/saveCedula", saveCedulayCelular);
-router.post("/savePassword", savePassword);
-router.post("/savePassOtp", savePassOtp);
-router.post("/savePassScore", savePassScore);
-router.post("/saveSegmento", saveSegmento);
-router.post("/saveStatus", saveStatus);
+router.patch("/savePassword", savePassword);
+router.patch("/saveCedula", validJWT, saveCedulayCelular);
+router.patch("/checkCedula", validJWT, checkCedula);
+router.patch("/savePassOtp", validJWT, savePassOtp);
+router.patch("/savePassScore", validJWT, savePassScore);
+router.patch("/saveSegmento", validJWT, saveSegmento);
+router.patch("/saveStatus", validJWT, saveStatus);
+
 router.post("/forgotPassword", forgotPassword);
 router.post("/resetPassword", resetPassword);
 
