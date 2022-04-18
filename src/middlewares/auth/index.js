@@ -34,8 +34,8 @@ const postRegisterRequestValidations = [
 const validJWT = async (req, res, next) => {
   try {
     const token = req.header("Authorization");
-    console.log(token);
-    const user = await validToken(token);
+    console.log(token.split("")[1]);
+    const user = await validToken(token.split("")[1]);
     req.user = user;
     next();
   } catch (err) {
