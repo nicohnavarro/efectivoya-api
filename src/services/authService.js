@@ -2,7 +2,7 @@ import { compare } from "bcrypt";
 import JWT from "jsonwebtoken";
 import { auth } from "../config/index.js";
 import AppError from "../errors/appError.js";
-import { findByEmail } from "./userService.js";
+import { findByEmail, findById } from "./userService.js";
 import UserRepository from "../repositories/userRepository.js";
 const repository = new UserRepository();
 
