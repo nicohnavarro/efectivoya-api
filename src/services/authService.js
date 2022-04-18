@@ -111,9 +111,9 @@ const validToken = async (token) => {
     if (!user) {
       throw new AppError("Authentication failed, Invalid token", 401);
     }
-    if (!user.enable) {
-      throw new AppError("Authentication failed, User is not enable", 401);
-    }
+    // if (!user.enable) {
+    //   throw new AppError("Authentication failed, User is not enable", 401);
+    // }
     return user;
   } catch (err) {
     throw err;
