@@ -2,7 +2,7 @@ import pkg from "sequelize";
 import sequelize from "../loaders/sequelize/index.js";
 const { DataTypes } = pkg;
 const User = sequelize.define(
-  "clientEmailUsers",
+  "auth_api_clients",
   {
     email: {
       type: DataTypes.STRING(50),

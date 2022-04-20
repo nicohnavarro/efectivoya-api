@@ -8,6 +8,12 @@ const sequelize = new Sequelize(
   {
     host: database.host,
     dialect: "mysql",
+    ssl: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+      },
+    },
   }
 );
 
