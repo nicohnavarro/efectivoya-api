@@ -1,7 +1,6 @@
 import { landingURL } from "../config/index.js";
 
 export default function generateConfirmEmailTemplate(email, token) {
-  const redirect = `verify/${token}`;
   const emailOptions = {
     from: '""Efectivo Ya 💲"" <notificacionesIT@zenziya.com>', // sender address
     to: email, // list of receivers
@@ -119,7 +118,7 @@ export default function generateConfirmEmailTemplate(email, token) {
                                   <tr>
                                       <td
                                           style="background-color: #F8F8F8;padding:40px;text-align: center;align-items: center;">
-                                          <a href="https://${landingURL}/${redirect}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
+                                          <a href="https://${landingURL}?token=${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
                                       </td>
                                   </tr>
                               </table>

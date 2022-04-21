@@ -4,7 +4,7 @@ export default function generateResetPasswordTemplate(
   email,
   resetPasswordCode
 ) {
-  const redirect = `reset?code=${resetPasswordCode}&email=${email}`;
+  const redirect = `?code=${resetPasswordCode}&email=${email}`;
   const emailOptions = {
     from: '""Efectivo Ya 💲"" <notificacionesIT@zenziya.com>', // sender address
     to: email, // list of receivers
@@ -116,13 +116,13 @@ export default function generateResetPasswordTemplate(
                                 </table>
                             </td>
                         </tr>
-                        <tr>
+
                             <td>
                                 <table width="100%" style="border-spacing: 0">
                                     <tr>
                                         <td
                                             style="background-color: #F8F8F8;padding:40px;text-align: center;align-items: center;">
-                                            <a href="https://${landingURL}/${redirect}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
+                                            <a href="https://${landingURL}${redirect}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
                                         </td>
                                     </tr>
                                 </table>
