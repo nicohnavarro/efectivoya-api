@@ -80,7 +80,7 @@ export default function generateConfirmEmailTemplate(email, token) {
               <td>
                   <table width="100%" style="border-spacing: 0">
                       <tr>
-                          <td style="background-color: #388cda;padding: 10px;text-align: left;">
+                          <td style="background-color: #000064;padding: 10px;text-align: center;">
                               <a href=""><img src="cid:logo" alt="Logo" width="120" /></a>
                           </td>
                       </tr>
@@ -88,7 +88,7 @@ export default function generateConfirmEmailTemplate(email, token) {
                           <td>
                               <table width="100%" style="border-spacing: 0">
                                   <tr>
-                                      <td style="background-color: #388cda;padding: 10px;text-align: center;">
+                                      <td style="background-color: #000064;padding: 10px;text-align: center;">
                                           <h3
                                               style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: 600; font-size: 24px; line-height: 33px; text-align: center; color: #FFFFFF;">
                                               ¡Bienvenido a nuestra familia! </h3>
@@ -118,7 +118,7 @@ export default function generateConfirmEmailTemplate(email, token) {
                                   <tr>
                                       <td
                                           style="background-color: #F8F8F8;padding:40px;text-align: center;align-items: center;">
-                                          <a href="https://${landingURL}?token=${token}" style=" text-decoration: none; background-color: #6C63FB;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
+                                          <a href="https://${landingURL}?token=${token}" style=" text-decoration: none; background-color: #008DFF;border-color: #6C63FB;color: rgb(255, 255, 255);width: 100%;border-radius: 10px;margin: auto;padding: 20px 80px;"><span  style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;">Continuar</span></a>
                                       </td>
                                   </tr>
                               </table>
@@ -132,7 +132,7 @@ export default function generateConfirmEmailTemplate(email, token) {
                                       <span
                                           style="font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center; color: #455A64;">
                                           ¿Necesitas ayuda? </span><a href="https://api.whatsapp.com/send/?phone=18494104542"
-                                          style="text-decoration: none; font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;color: #6C63FB;">Contáctanos.</a>
+                                          style="text-decoration: none; font-family: 'Poppins', sans-serif; font-style: normal; font-weight: normal; font-size: 16px; line-height: 18px; text-align: center;color: #008DFF;">Contáctanos.</a>
                                   </td>
                               </tr>
                           </table>
